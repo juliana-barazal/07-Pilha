@@ -87,13 +87,35 @@ void push()
 	cin >> novo->valor;
 	novo->prox = NULL;
 
+	if (topo == NULL) {
+		topo = novo;
+		topo->prox = NULL;
+		cout << "Elemento inserido com sucesso no início da lista!" << endl;
+	}
+
+	else {
+		novo->prox = topo;
+		topo = novo;
+		cout << "Elemento inserido com sucesso!" << endl;
+	}
+
+
 
 }
 
 void pop()
 {
 
-	
+	if (topo == NULL) {
+		cout << "Não há elementos a serem excluídos porque a pilha está vazia. Escolha a opção 2." << endl;
+	}
+
+	else {
+		NO* aux = topo;
+		topo = topo->prox;
+		cout << "Elemento " << aux->valor << " removido com sucesso!" << endl;
+		free(aux);
+	}
 
 }
 
